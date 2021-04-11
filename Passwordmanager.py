@@ -1,5 +1,7 @@
 name = ""
 age = ""
+username = ""
+password = ""
 # empty list for storing new passwords and usernames
 password_list = []
 # list with existing usernames and passwords
@@ -32,19 +34,27 @@ while True:
     chosen_option = menu(name, age)
     
     if chosen_option == "1":
-        print("Type in your password here:")
-        break
+        username = input("Type in your username here: ")
+        password = input("Type in your password here: ")
+        
         
         
     if chosen_option == "2":
-        print("Here are your existing passwords")
-        break
+        print("Please sign in to view existing passwords")
+        signin_username = (input("Please enter your username: "))
+        if signin_username == username:
+            signin_password = (input("Please enter your password: "))
+            if signin_password == password:
+                print("You are signed in")
+                print("Here are your saved passwords and usernames: ", password, username)
+            else:
+                print("Your login credentials do not match any in our database")
+                
     
 
     if chosen_option == "3":
         print("Goodbye, thanks for using password manager")
         break
     
-    else: 
-        print("Sorry, that was not a valid option. Please try again later")
+    
         
